@@ -33,19 +33,19 @@ function App() {
     });
   };
 
+
   useEffect(() => {
-    console.log(state);
-  }, [state]);
-  useEffect(() => {
-    console.log(localStorage);
-    localStorage.setItem("state", JSON.stringify(state));
+       localStorage.setItem("state", JSON.stringify(state));
   }, [state]);
 
   const { good, neutral, bad } = state;
 
   const totalFeedback = good + neutral + bad;
 
-  const positivePercent = Math.round(((good + neutral) / totalFeedback) * 100);
+  const positivePercent =
+    totalFeedback > 0
+      ? Math.round(((good + neutral) / totalFeedback) * 100)
+      : 0;
 
   return (
     <>
