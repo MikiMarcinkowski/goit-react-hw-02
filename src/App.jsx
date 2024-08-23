@@ -9,19 +9,14 @@ import Notification from "./components/notification/Notification";
 function App() {
   const [state, setState] = useState(() => {
     const savedStorage = localStorage.getItem("state");
-    return (savedStorage ? JSON.parse(savedStorage) : {
-      good: 0,
-      bad: 0,
-      neutral: 0,
-    })
+    return savedStorage
+      ? JSON.parse(savedStorage)
+      : {
+          good: 0,
+          bad: 0,
+          neutral: 0,
+        };
   });
-    
-    
- 
-    
-
-
-
 
   const updateFeedback = (feedbackType) => {
     setState((prevState) => ({
@@ -52,27 +47,28 @@ function App() {
 
   const positivePercent = Math.round(((good + neutral) / totalFeedback) * 100);
 
-
   return (
     <>
-      <Descryption name="Nice Things Happens Café" />
-      <Options
-        updateFeedback={updateFeedback}
-        handleReset={handleReset}
-        totalFeedback={totalFeedback}
-      
-      />
-
-      {totalFeedback !== 0 ? (
-        <Feedback
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          totalFeedback={totalFeedback}  positivePercent={positivePercent}
+      <div className="appContainer">
+        <Descryption name="Nice Things Happens Café" />
+        <Options
+          updateFeedback={updateFeedback}
+          handleReset={handleReset}
+          totalFeedback={totalFeedback}
         />
-      ) : (
-        <Notification />
-      )}
+
+        {totalFeedback !== 0 ? (
+          <Feedback
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            totalFeedback={totalFeedback}
+            positivePercent={positivePercent}
+          />
+        ) : (
+          <Notification />
+        )}
+      </div>
     </>
   );
 }

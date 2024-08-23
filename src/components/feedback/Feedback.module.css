@@ -1,0 +1,27 @@
+
+
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.feedbackList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.feedbackItem {
+  background-color: #e0f7fa;
+  color: #0ec5b0;
+  border: 1px solid #b2ebf2;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 0;
+  width: 100%;
+  text-align: center;
+}

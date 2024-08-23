@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
+import css from "./Descryption.module.css"; // Import modułu CSS
 
 const Descryption = ({ name }) => {
   return (
     <>
-      <h1>{name}</h1>
-      <p>
+      <h1 className={css.descriptionTitle}>{name}</h1>
+      <h3 className={css.descriptionSubtitle}>
         Please leave your feedback about our service by selecting one of the
         options below.
-      </p>
+      </h3>
     </>
   );
 };
